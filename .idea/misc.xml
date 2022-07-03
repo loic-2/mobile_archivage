@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.221875" />
         <entry key="app/src/main/res/drawable/account_portal.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/appicon.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable/books.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/bottomnavigationstyle.xml" value="0.104" />
         <entry key="app/src/main/res/drawable/download.xml" value="0.11" />
@@ -13,9 +14,11 @@
         <entry key="app/src/main/res/drawable/field_style.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/google.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/lock_protected.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/medal.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable/password.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/project_details.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/stroke.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/university_cap.xml" value="0.1385" />
         <entry key="app/src/main/res/layout/activity_athenticate.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
