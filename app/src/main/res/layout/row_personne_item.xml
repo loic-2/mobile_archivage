@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="5dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/personne"
@@ -12,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Ganno Loic"
-        android:textSize="18dp"
+        android:textSize="12dp"
         android:textColor="@color/black"
         android:drawableStart="@drawable/university_cap"
         app:layout_constraintStart_toStartOf="parent"

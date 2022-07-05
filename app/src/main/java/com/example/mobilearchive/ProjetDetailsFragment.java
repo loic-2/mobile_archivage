@@ -15,9 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mobilearchive.controllers.EncadreurRecycleAdapter;
 import com.example.mobilearchive.controllers.MembreRecycleAdapter;
+import com.example.mobilearchive.controllers.NavigationFragment;
 import com.example.mobilearchive.models.Encadreur;
 import com.example.mobilearchive.models.Membre;
 import com.example.mobilearchive.models.StoreData;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
@@ -30,6 +32,16 @@ public class ProjetDetailsFragment extends Fragment {
     private MaterialTextView promotion_project;
     private ArrayList<Encadreur> encadreurs;
     private ArrayList<Membre> membres;
+    private MaterialButton btn_download;
+    private MaterialButton btn_archive;
+    private MaterialButton btn_add_to_favour;
+    private MaterialButton btn_read;
+    private NavigationFragment navigationFragment;
+
+    public ProjetDetailsFragment(NavigationFragment navigationFragment) {
+        this.navigationFragment = navigationFragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,6 +51,10 @@ public class ProjetDetailsFragment extends Fragment {
         promotion_project= view.findViewById(R.id.details_projet_promotion);
         list_encadreurs= view.findViewById(R.id.list_encadreurs);
         list_membres= view.findViewById(R.id.list_membre);
+        btn_add_to_favour= view.findViewById(R.id.add_project_to_favour);
+        btn_archive= view.findViewById(R.id.archive_project);
+        btn_download= view.findViewById(R.id.download_project);
+        btn_read= view.findViewById(R.id.read_project);
         encadreurs= new ArrayList<>();
         membres= new ArrayList<>();
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back_arrow));
@@ -57,9 +73,19 @@ public class ProjetDetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         name_project.setText(StoreData.projetItem.getNOM_PROJET());
         promotion_project.setText(StoreData.projetItem.getPROMOTION_PROJET());
+        navigateToOption();
         getAllMembres();
         getAllEncadreurs();
         setCustomAdapter();
+    }
+
+    private void navigateToOption() {
+        btn_download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigationFragment.studentDownload();
+            }
+        });
     }
 
     private void setCustomAdapter(){
@@ -67,9 +93,10 @@ public class ProjetDetailsFragment extends Fragment {
         MembreRecycleAdapter membreRecycleAdapter= new MembreRecycleAdapter(membres,getContext());
         RecyclerView.LayoutManager manager= new LinearLayoutManager(getContext());
         list_membres.setLayoutManager(manager);
-        list_encadreurs.setLayoutManager(manager);
-        list_encadreurs.setAdapter(encadreurRecycleAdapter);
         list_membres.setAdapter(membreRecycleAdapter);
+        RecyclerView.LayoutManager manager2= new LinearLayoutManager(getContext());
+        list_encadreurs.setLayoutManager(manager2);
+        list_encadreurs.setAdapter(encadreurRecycleAdapter);
     }
 
     private void getAllEncadreurs(){
