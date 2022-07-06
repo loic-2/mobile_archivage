@@ -8,4 +8,7 @@ public interface NavigationFragment {
     void succesDownload();
     void succesPayement();
     void go(Projet projet);
+    void categorieToHome();
+    void openLeftNavigation();
+    void closeLeftNavigation();
 }

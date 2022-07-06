@@ -81,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textAlignment="center"
-                        android:drawableEnd="@drawable/download_icon"
+                        android:drawableEnd="@drawable/download_white_icon"
                         android:text="12" />
 
                     <ImageView

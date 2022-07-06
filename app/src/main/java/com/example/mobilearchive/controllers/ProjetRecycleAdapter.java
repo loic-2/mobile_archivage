@@ -62,7 +62,7 @@ public class ProjetRecycleAdapter extends RecyclerView.Adapter<ProjetRecycleAdap
 
     @Override
     public int getItemCount() {
-        return this.projetList.size();
+        return this.allProjetList.size();
     }
 
     @Override

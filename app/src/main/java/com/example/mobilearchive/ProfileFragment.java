@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.mobilearchive.controllers.NavigationFragment;
 import com.example.mobilearchive.controllers.ProfileNavigation;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
@@ -21,6 +22,11 @@ public class ProfileFragment extends Fragment {
     private CircleImageView avatar;
     private Toolbar toolbar;
     private ProfileNavigation profileNavigation;
+    private NavigationFragment navigationFragment;
+
+    public ProfileFragment(NavigationFragment navigationFragment) {
+        this.navigationFragment = navigationFragment;
+    }
 
     @Nullable
     @Override
@@ -79,5 +85,15 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        openNavigationLeft();
+    }
+
+    private void openNavigationLeft() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigationFragment.openLeftNavigation();
+            }
+        });
     }
 }

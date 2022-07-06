@@ -28,6 +28,12 @@ import java.util.ArrayList;
     public ProjetRecycleAdapter adapter;
     private Toolbar toolbar;
     private NavigationFragment navigationFragment;
+    private String toolbar_name;
+
+     public HomeFragment(NavigationFragment navigationFragment, String toolbar_name) {
+         this.navigationFragment = navigationFragment;
+         this.toolbar_name = toolbar_name;
+     }
 
      public HomeFragment(NavigationFragment navigationFragment) {
          this.navigationFragment = navigationFragment;
@@ -41,7 +47,11 @@ import java.util.ArrayList;
         View view= inflater.inflate(R.layout.fragment_home,container,false);
         projetArrayList= new ArrayList<>();
         toolbar= view.findViewById(R.id.top_toolbar);
-        toolbar.setTitle("Home");
+        if (this.toolbar_name==null){
+            toolbar.setTitle("Home");
+        }else {
+            toolbar.setTitle(this.toolbar_name);
+        }
         recyclerView= view.findViewById(R.id.homelist);
         searchView= view.findViewById(R.id.homesearch);
         getAllRemoteProjet();
@@ -52,6 +62,7 @@ import java.util.ArrayList;
      @Override
      public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
          super.onViewCreated(view, savedInstanceState);
+         openNavigation();
          searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
              @Override
              public boolean onQueryTextSubmit(String query) {
@@ -62,6 +73,15 @@ import java.util.ArrayList;
              public boolean onQueryTextChange(String newText) {
                  adapter.getFilter().filter(newText);
                  return false;
+             }
+         });
+     }
+
+     private void openNavigation() {
+         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                     navigationFragment.openLeftNavigation();
              }
          });
      }

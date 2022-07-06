@@ -9,7 +9,10 @@
         <entry key="app/src/main/res/drawable/arrow_circle.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/background.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable/books.xml" value="0.138" />
+        <entry key="app/src/main/res/drawable/bottom_line.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/bottomnavigationstyle.xml" value="0.104" />
+        <entry key="app/src/main/res/drawable/circle_chevron.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/close_icon.xml" value="0.103" />
         <entry key="app/src/main/res/drawable/download.xml" value="0.11" />
         <entry key="app/src/main/res/drawable/download_icon.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/download_white_icon.xml" value="0.139" />
@@ -19,11 +22,15 @@
         <entry key="app/src/main/res/drawable/google.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/heart.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/help.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/info.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/info_alert.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/library_icon.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/lock_protected.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/medal.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable/password.xml" value="0.138" />
         <entry key="app/src/main/res/drawable/phone_payement.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable/project_details.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/question_mark.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/right_arrow.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/right_circle_arrow.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/rounded_profile.xml" value="0.1295" />
@@ -39,18 +46,20 @@
         <entry key="app/src/main/res/layout/fragment_connexion.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_inscription.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_library.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_library.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_action.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_project_details.xml" value="0.13632246376811594" />
         <entry key="app/src/main/res/layout/fragment_projet_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_read_file.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/navigation_drawer.xml" value="0.25" />
         <entry key="app/src/main/res/layout/projet_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/row_personne_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/student_download_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.75" />
+        <entry key="app/src/main/res/menu/left_menu.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -17,7 +17,9 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:background="@drawable/bottom_line"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -32,12 +34,14 @@
                 android:text="Settings"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:drawableEnd="@drawable/right_arrow"/>
+                android:drawableEnd="@drawable/circle_chevron"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:background="@drawable/bottom_line"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -52,18 +56,20 @@
                 android:text="Archive"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:drawableEnd="@drawable/right_arrow"/>
+                android:drawableEnd="@drawable/circle_chevron"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:background="@drawable/bottom_line"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/download"/>
+                android:src="@drawable/download_white_icon"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/profile_downloads"
                 android:paddingLeft="20dp"
@@ -72,12 +78,14 @@
                 android:text="Downloads"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:drawableEnd="@drawable/right_arrow"/>
+                android:drawableEnd="@drawable/circle_chevron"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:background="@drawable/bottom_line"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -92,12 +100,14 @@
                 android:text="Favourite"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:drawableEnd="@drawable/right_arrow"/>
+                android:drawableEnd="@drawable/circle_chevron"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:background="@drawable/bottom_line"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -112,12 +122,14 @@
                 android:text="Tell a friend"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:drawableEnd="@drawable/right_arrow"/>
+                android:drawableEnd="@drawable/circle_chevron"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:background="@drawable/bottom_line"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="wrap_content"
@@ -132,7 +144,7 @@
                 android:text="Help"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:drawableEnd="@drawable/right_arrow"/>
+                android:drawableEnd="@drawable/circle_chevron"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
