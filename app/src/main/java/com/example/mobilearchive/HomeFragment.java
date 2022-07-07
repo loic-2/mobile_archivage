@@ -5,34 +5,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.mobilearchive.controllers.NavigationFragment;
 import com.example.mobilearchive.controllers.ProjetRecycleAdapter;
 import com.example.mobilearchive.models.Projet;
 import com.example.mobilearchive.models.StoreData;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
- public class HomeFragment extends Fragment implements ProjetRecycleAdapter.gotoDetails{
+public class HomeFragment extends Fragment implements ProjetRecycleAdapter.gotoDetails{
     private ArrayList<Projet> projetArrayList;
     public RecyclerView recyclerView;
     private SearchView searchView;
     public ProjetRecycleAdapter adapter;
     private Toolbar toolbar;
+    private String url;
     private NavigationFragment navigationFragment;
+    private RequestQueue queue;
     private String toolbar_name;
 
-     public HomeFragment(NavigationFragment navigationFragment, String toolbar_name) {
+     public HomeFragment(NavigationFragment navigationFragment, String toolbar_name, String url) {
          this.navigationFragment = navigationFragment;
          this.toolbar_name = toolbar_name;
+         this.url= url;
      }
 
      public HomeFragment(NavigationFragment navigationFragment) {
@@ -45,6 +57,7 @@ import java.util.ArrayList;
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_home,container,false);
+        this.queue= Volley.newRequestQueue(this.getContext());
         projetArrayList= new ArrayList<>();
         toolbar= view.findViewById(R.id.top_toolbar);
         if (this.toolbar_name==null){
@@ -55,7 +68,6 @@ import java.util.ArrayList;
         recyclerView= view.findViewById(R.id.homelist);
         searchView= view.findViewById(R.id.homesearch);
         getAllRemoteProjet();
-        setAdapter();
         return view;
     }
 
@@ -87,26 +99,20 @@ import java.util.ArrayList;
      }
 
      private void getAllRemoteProjet() {
-        projetArrayList.add(new Projet("PROJET TEST", "2019-2022", "3", "4",
-                "http://localhost/api/projet",'4', "PFE"));
-        projetArrayList.add(new Projet("PROJET COOL", "2018-2021", "3", "4",
-                "http://localhost/api/projet",'4', "PFE"));
-        projetArrayList.add(new Projet("PROJET BELLE", "2017-2020", "3", "4",
-                "http://localhost/api/projet",'4', "PFE"));
-        projetArrayList.add(new Projet("PROJET SOURIRE", "2016-2019", "3", "4",
-                "http://localhost/api/projet",'4', "PFE"));
-        projetArrayList.add(new Projet("PROJET VAS", "2015-2018", "3", "4",
-                "http://localhost/api/projet",'4', "PFE"));
-        projetArrayList.add(new Projet("PROJET VUE", "2014-2017", "3", "4",
-                "http://localhost/api/projet",'4', "PFE"));
+        if (url==null){
+            url="http://192.168.43.137:8000/api/projet";
+            getAllProjet(url,queue);
+        }
     }
 
-    private void setAdapter() {
+    private void setAdapter(ArrayList<Projet> projets) {
         adapter= new ProjetRecycleAdapter(getContext(),projetArrayList,this::go);
         RecyclerView.LayoutManager manager= new LinearLayoutManager(getContext());
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(manager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
      @Override
@@ -116,5 +122,24 @@ import java.util.ArrayList;
                 .replace(R.id.fragmentContainer,new ProjetDetailsFragment(navigationFragment))
                 .addToBackStack(null)
                 .commit();
+     }
+
+     public void getAllProjet(String url , RequestQueue queue){
+         StringRequest request;
+         request = new StringRequest(Request.Method.GET, url,new Response.Listener<String>() {
+             @Override
+             public void onResponse(String response) {
+                 Gson jsonProjet= new Gson();
+                 Type projetList= new TypeToken<ArrayList<Projet>>(){}.getType();
+                 projetArrayList.addAll(jsonProjet.fromJson(response,projetList));
+                 setAdapter(projetArrayList);
+             }
+         }, new Response.ErrorListener() {
+             @Override
+             public void onErrorResponse(VolleyError error) {
+
+             }
+         });
+         queue.add(request);
      }
  }

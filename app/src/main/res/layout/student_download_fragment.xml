@@ -85,7 +85,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Download"
-            app:icon="@drawable/download"
             android:textAllCaps="false"
             android:textSize="18dp"
             android:paddingVertical="10dp"

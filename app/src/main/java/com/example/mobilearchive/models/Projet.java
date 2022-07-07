@@ -8,6 +8,22 @@ public class Projet {
     private String LIEN_PROJET;
     private int ID_PROJET;
     private String TYPE_PROJET;
+    private String created_at;
+    private String updated_at;
+
+    public Projet(String NOM_PROJET, String PROMOTION_PROJET, String VUE_PROJET, String TELECHARGEMENT_PROJET, String LIEN_PROJET,
+                  int ID_PROJET, String TYPE_PROJET, String created_at, String updated_at)
+    {
+        this.NOM_PROJET = NOM_PROJET;
+        this.PROMOTION_PROJET = PROMOTION_PROJET;
+        this.VUE_PROJET = VUE_PROJET;
+        this.TELECHARGEMENT_PROJET = TELECHARGEMENT_PROJET;
+        this.LIEN_PROJET = LIEN_PROJET;
+        this.ID_PROJET = ID_PROJET;
+        this.TYPE_PROJET = TYPE_PROJET;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
 
     public Projet(String NOM_PROJET, String PROMOTION_PROJET, String VUE_PROJET, String TELECHARGEMENT_PROJET, String LIEN_PROJET, int ID_PROJET, String TYPE_PROJET) {
         this.NOM_PROJET = NOM_PROJET;
@@ -17,6 +33,22 @@ public class Projet {
         this.LIEN_PROJET = LIEN_PROJET;
         this.ID_PROJET = ID_PROJET;
         this.TYPE_PROJET = TYPE_PROJET;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 
     public Projet getProjet(){

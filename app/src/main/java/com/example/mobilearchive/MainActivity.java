@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.example.mobilearchive.controllers.NavigationFragment;
 import com.example.mobilearchive.models.Projet;
 import com.example.mobilearchive.models.StoreData;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         View header_view= leftNavigationView.getHeaderView(0);
         close_icon= header_view.findViewById(R.id.close_left_nav);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer,new HomeFragment(navigationFragment))
+                .replace(R.id.fragmentContainer,new HomeFragment(navigationFragment,null, null))
                 .commit();
         close_icon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment=null;
-                System.out.println("***************************************"+item.getItemId()+"*******");
                 switch (item.getItemId()){
                     case R.id.homeFragment:
                         selectedFragment= new HomeFragment(navigationFragment);
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             @Override
             public void categorieToHome() {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragmentContainer,new HomeFragment(navigationFragment,"Library"))
+                        .replace(R.id.fragmentContainer,new HomeFragment(navigationFragment,"Library",null))
                         .addToBackStack(null)
                         .commit();
             }
